@@ -39,6 +39,8 @@ jobs:
 
       # run tests!
       - run: mvn integration-test
+      - store_artifacts:
+          path: target/surefire-reports
 test:
   post:
     - mkdir -p $CIRCLE_TEST_REPORTS/junit/
