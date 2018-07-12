@@ -38,7 +38,7 @@ jobs:
           key: v1-dependencies-{{ checksum "pom.xml" }}
 
       # run tests!
-      - run: mvn deploy
+      - run: mvn integration-test
 test:
   post:
     - mkdir -p $CIRCLE_TEST_REPORTS/junit/
