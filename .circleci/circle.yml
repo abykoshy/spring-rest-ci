@@ -44,7 +44,7 @@ test:
     - mkdir -p $CIRCLE_TEST_REPORTS/junit/
     - find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
 deployment:
-  dockerhub:
+  hub:
     branch: master
     commands:
       - $DOCKER_HUB_TRIGGER
