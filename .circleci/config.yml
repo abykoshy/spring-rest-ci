@@ -49,8 +49,4 @@ jobs:
           path: ~/junit
       - store_artifacts:
           path: ~/junit
-deployment:
-  hub:
-    branch: master
-    commands:
-      - $DOCKER_HUB_TRIGGER
+      - run : $DOCKER_HUB_TRIGGER
