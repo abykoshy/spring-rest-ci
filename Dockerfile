@@ -12,4 +12,4 @@ RUN chmod 755 mvnm
 
 EXPOSE 8080
 
-CMD mvnw spring-boot:run
+CMD mvn spring-boot:run
