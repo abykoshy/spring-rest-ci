@@ -4,8 +4,8 @@ MAINTAINER aby.koshy@gmail.com
 
 # install java
 RUN apt-get update && \
-    apt-get install openjdk-8-jre-headless && \
-    apt-get install maven && \
+    apt-get install -y openjdk-8-jre-headless && \
+    apt-get install -y maven && \
     apt-get clean all
 
 RUN chmod 755 mvnm
