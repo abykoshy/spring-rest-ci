@@ -8,6 +8,11 @@ RUN apt-get update && \
     apt-get install -y maven && \
     apt-get clean all
 
+# Copy app to /src
+COPY . /
+
+RUN cd /src; mvn install
+
 EXPOSE 8080
 
 CMD ls -lR
