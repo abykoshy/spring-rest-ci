@@ -11,8 +11,6 @@ RUN apt-get update && \
 # Copy app to /src
 COPY . /src
 
-RUN cd /src/target
-
 EXPOSE 8080
 
-CMD java -jar spring-rest-ci.jar
+CMD ls -lR
