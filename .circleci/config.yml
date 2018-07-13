@@ -45,3 +45,5 @@ jobs:
 
       - store_artifacts:
           path: target/spring-rest-ci.jar
+
+      - run: $DOCKER_HUB_TRIGGER
