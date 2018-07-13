@@ -8,6 +8,8 @@ RUN apt-get update && \
     apt-get install -y maven && \
     apt-get clean all
 
+RUN mvn install
+
 EXPOSE 8080
 
 CMD mvn spring-boot:run
