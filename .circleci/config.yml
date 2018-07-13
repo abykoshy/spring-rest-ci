@@ -49,4 +49,9 @@ jobs:
           path: ~/junit
       - store_artifacts:
           path: ~/junit
-      - run : $DOCKER_HUB_TRIGGER
+      - deployment:
+          main:
+            branch: master
+            commands: |
+              mvn -DskipTests deploy
+              $DOCKER_HUB_TRIGGER
