@@ -9,7 +9,7 @@ RUN apt-get update && \
     apt-get clean all
 
 # Copy app to /src
-COPY . /
+COPY . /src
 
 RUN cd /src; mvn install
 
