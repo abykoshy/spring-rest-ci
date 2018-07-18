@@ -11,7 +11,7 @@ RUN apt-get update && \
 # Copy app to /src
 COPY . /src
 
-RUN cd /src; mvn -DskipTests install
+#RUN cd /src; mvn -DskipTests install
 
 EXPOSE 8080
 
