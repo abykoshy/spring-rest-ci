@@ -1,18 +1,11 @@
-FROM ubuntu:16.04
-
-MAINTAINER aby.koshy@gmail.com
-
-# install java
-RUN apt-get update && \
-    apt-get install -y openjdk-8-jdk-headless && \
-    apt-get install -y maven && \
-    apt-get clean all
-
-# Copy app to /src
+FROM maven:latest AS build
 COPY . /src
-
 RUN cd /src; mvn -DskipTests package
 
+FROM java:8-jdk-alpine AS prod
+MAINTAINER aby.koshy@gmail.com
+RUN adduser -Dh /home/builder builder
+WORKDIR /app
+COPY --from=build /src/target/spring-rest-ci.jar .
+ENTRYPOINT ["java","-jar","/app/spring-rest-ci.jar"]
 EXPOSE 8080
-
-CMD cd /src/target && java -jar spring-rest-ci.jar
