@@ -9,17 +9,31 @@
 name: Java CI with Maven
 
 on:
-  push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
-
+#  push:
+#    branches: [ "master" ]
+#  pull_request:
+#    branches: [ "master" ]
+  workflow_call:
+    inputs:
+      environment:
+        description: 'Deployment environment'
+        required: true
+        type: string
+      version:
+        description: 'Application version'
+        required: false
+        type: string
+        default: latest
 jobs:
   build:
 
     runs-on: ubuntu-latest
 
     steps:
+    - name: Echo parameters
+      run: |
+        echo "Deploying to ${{ inputs.environment }}"
+        echo "Version: ${{ inputs.version }}"
     - uses: actions/checkout@v4
     - name: Set up JDK 17
       uses: actions/setup-java@v4
